@@ -6,7 +6,7 @@ body{
     justify-content: center;
     flex-direction: column;
     overflow: hidden; /*overflow evita do negocio scrollar*/
-    height: 100vh; /* 100 viewport - pega toda altura da tela*/
+    height: 100vh; /* 100 viewheight - pega toda altura da tela*/
     /*o height + o align-items center faz com que td fique no meio da tela*/
 }
 
@@ -17,14 +17,94 @@ h1{
     font-weight: 900;
 }
 
-.animar{
-    width: 100px;
-    flex-direction: row;
+#animar{
+    display: flex;
+    justify-content: space-between;
+    width: 20vw; /*20 viewwidth - a div animar ocupa um tamanho de 20% da tela*/
 }
 
 .item{
-    background-color: coral;
+    background-color: rgb(255, 170, 139);
     width: 8px;
     height: 40px;
+    animation: esticar 1s linear infinite; /*1s é o total do ciclo; linear é linha reta; infinte é que vai dar um loop infinito*/
+}
 
+.item:nth-child(1){
+    animation-delay: 0s;
+}
+
+.item:nth-child(2){
+    animation-delay: 0.1s; /*começa a animação depois de 0.1s*/
+}
+
+.item:nth-child(3){
+    animation-delay: 0.2s; /*começa a animação depois de 0.2s*/
+}
+
+.item:nth-child(4){
+    animation-delay: 0.3s;
+}
+
+.item:nth-child(5){
+    animation-delay: 0.4s;
+}
+
+.item:nth-child(6){
+    animation-delay: 0.5s;
+}
+
+.item:nth-child(7){
+    animation-delay: 0.6s;
+}
+
+.item:nth-child(8){
+    animation-delay: 0.7s;
+}
+
+.item:nth-child(9){
+    animation-delay: 0.8s;
+}
+
+.item:nth-child(10){
+    animation-delay: 0.9s;
+}
+
+@media(max-width: 600px) {
+    #animar{
+        display: block;
+    }
+
+    .item{
+        position: absolute; /*items um atras do outro*/
+        left: 50%;
+        height: 70px;
+        width: 12px;
+        animation-name: girar;
+        animation-duration: 2s;
+    }
+}
+
+@keyframes esticar{ /*movimento de subir e descer - tem que mostrar o q vai acontecer em cada tempo*/
+    0%{
+        transform: scaleY(1);
+    }
+
+    70%{
+        transform: scaleY(1);
+        background-color: rgb(255, 170, 139);
+    }
+
+    85%{
+        transform: scaleY(2);
+        background-color: coral;
+    }
+
+    100%{
+        transform: scaleY(1);
+        background-color: rgb(255, 170, 139);
+    }
+}
+
+@keyframes girar{
 }
